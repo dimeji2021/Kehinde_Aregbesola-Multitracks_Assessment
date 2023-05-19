@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "L4ceCHiMTozXYveCJ3ntGE7RVDMAeU+1fTR9TB1n+lu5rJ6hZnG5+zbPDC0vMysXKGpUs73YkgzxkgzDgryBww==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kehinde Aregbesola\\Desktop\\interview questions and answers\\Multitracks\\.net\\Web\\Multitracks.API\\multitracks.API\\multitracks.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Kehinde Aregbesola\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
