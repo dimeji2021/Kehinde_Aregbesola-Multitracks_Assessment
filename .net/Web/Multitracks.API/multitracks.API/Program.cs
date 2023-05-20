@@ -1,25 +1,83 @@
+using Microsoft.EntityFrameworkCore;
+using multitracks.API.Extensions;
+using multitracks.Core.Interfaces;
+using multitracks.Core.Services;
+using multitracks.Core.Utilities;
+using multitracks.Infrastructure;
+using multitracks.Infrastructure.Repositories;
+using multitracks.Infrastructure.Settings;
+using Serilog;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure serilog
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    logger.Information("Application is starting");
+    // Add services to the container.
+    builder.Services.AddControllers().AddJsonOptions(options=>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        //options.JsonSerializerOptions.WriteIndented = true;
+    });
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
+    builder.Services.AddScoped<ISongRepository, SongRepository>();
+    builder.Services.AddScoped<IArtistService, ArtistService>();
+    builder.Services.AddScoped<ISongService, SongService>();
+    builder.Services.AddAutoMapper(typeof(Mapping));
+    builder.Services.AddScoped<IUploadImageToAzureRepository, UploadImageToAzureRepository>();
+    var dataBaseConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.Configure<AzureOptions>(builder.Configuration.GetSection("Azure"));
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    {
+        options.UseSqlServer(dataBaseConnectionString);
+    });
+    builder.Services.AddHealthChecks()
+       .AddSqlServer(dataBaseConnectionString,
+       name: "sqlServer",
+       timeout: TimeSpan.FromSeconds(3),
+       tags: new[] { "ready" });
+
+
+    var app = builder.Build();
+    // Configure global exception.
+    ConfigurationMethod.ConfigureGlobalExceptionHandler(app);
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseAuthorization();
+    // Configure healthchecks.
+    ConfigurationMethod.ConfigiureHealthChecks(app);
+
+    app.MapControllers();
+
+    app.Run();
+
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+catch (Exception ex)
+{
+    logger.Fatal(ex, "Application fail to start");
+}
+finally
+{
+    logger.Dispose();
+}

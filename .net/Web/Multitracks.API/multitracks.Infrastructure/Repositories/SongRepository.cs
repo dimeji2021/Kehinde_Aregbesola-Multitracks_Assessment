@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using multitracks.Core.Dtos;
 using multitracks.Domain.Models;
 
 namespace multitracks.Infrastructure.Repositories
@@ -12,15 +13,15 @@ namespace multitracks.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<Song>> GetAllSongsAsync(int pageNumber, int pageSize)
+        public async Task<List<Song>> GetAllSongsAsync(RequestParam requestParam)
         {
-            int skip = (pageNumber - 1) * pageSize;
+            int skip = (requestParam.PageNumber - 1) * requestParam.PageSize;
             var songs = await _dbContext.Song
                 .Include(x => x.Artist)
                 .Include(x => x.Album)
                 .OrderBy(x => x.SongId)
                            .Skip(skip)
-                           .Take(pageSize)
+                           .Take(requestParam.PageSize)
                .ToListAsync();
             return songs;
         }

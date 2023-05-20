@@ -1,0 +1,15 @@
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\bin\Debug\net6.0\multitracks.Core.deps.json
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\bin\Debug\net6.0\multitracks.Core.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\bin\Debug\net6.0\multitracks.Core.pdb
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\bin\Debug\net6.0\multitracks.Domain.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\bin\Debug\net6.0\multitracks.Domain.pdb
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.csproj.AssemblyReference.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.AssemblyInfoInputs.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.AssemblyInfo.cs
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.csproj.CoreCompileInputs.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.csproj.CopyComplete
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\refint\multitracks.Core.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\multitracks.Core.pdb
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\obj\Debug\net6.0\ref\multitracks.Core.dll

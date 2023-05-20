@@ -1,0 +1,12 @@
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\bin\Debug\net6.0\multitracks.Domain.deps.json
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\bin\Debug\net6.0\multitracks.Domain.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\bin\Debug\net6.0\multitracks.Domain.pdb
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.csproj.AssemblyReference.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.AssemblyInfoInputs.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.AssemblyInfo.cs
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\refint\multitracks.Domain.dll
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\multitracks.Domain.pdb
+C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Domain\obj\Debug\net6.0\ref\multitracks.Domain.dll

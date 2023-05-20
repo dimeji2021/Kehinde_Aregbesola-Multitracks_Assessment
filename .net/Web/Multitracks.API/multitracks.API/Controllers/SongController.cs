@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using multitracks.Core.Dtos;
 using multitracks.Core.Interfaces;
 
 namespace multitracks.API.Controllers
@@ -16,11 +17,11 @@ namespace multitracks.API.Controllers
             _log = log;
         }
 
-        [HttpGet, Route("list")]
-        public async Task<IActionResult> ListAllSong(int pageNumber, int pageSize)
+        [HttpGet("list")]
+        public async Task<IActionResult> ListAllSong([FromQuery]RequestParam requestParam)
         {
             _log.LogInformation("Executing list all songs endpoint");
-            var songs = await _songService.GetAllSongsAsync(pageNumber, pageSize);
+            var songs = await _songService.GetAllSongsAsync(requestParam);
             return StatusCode(songs.StatusCode, songs);
         }
     }

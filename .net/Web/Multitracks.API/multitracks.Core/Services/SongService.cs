@@ -20,11 +20,11 @@ namespace multitracks.Core.Services
             _log = log;
         }
 
-        public async Task<ResponseDto<List<GetSongDto>>> GetAllSongsAsync(int pageNumber, int pageSize)
+        public async Task<ResponseDto<List<GetSongDto>>> GetAllSongsAsync(RequestParam requestParam)
         {
             _log.LogInformation("Calling the get all songs  method.");
-            var songs = await songRepository.GetAllSongsAsync(pageNumber, pageSize);
-            if (songs is null)
+            var songs = await songRepository.GetAllSongsAsync(requestParam);
+            if (songs.Count == 0)
             {
                 return ResponseDto<List<GetSongDto>>.Fail("No Song found", (int)HttpStatusCode.NotFound);
             }

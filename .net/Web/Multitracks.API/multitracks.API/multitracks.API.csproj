@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00295" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\multitracks.Core\multitracks.Core.csproj" />
+    <ProjectReference Include="..\multitracks.Infrastructure\multitracks.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
