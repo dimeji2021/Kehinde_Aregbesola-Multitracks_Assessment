@@ -1,5 +1,6 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -26,10 +27,17 @@ namespace multitracks.Infrastructure.Repositories
         public async Task<ResponseDto<string>> UploadImageRepository(UploadImageDto upload)
         {
             _log.LogInformation("Successfull enter the image upload service");
+            var isImage = IsImage(upload.File);
+            if (isImage != true)
+            {
+                _log.LogError("The file upload is not supported");
+                return ResponseDto<string>.Fail("The file upload is not supported", (int)HttpStatusCode.BadRequest);
+
+            }
             var artist = await _dbContext.Artist.FirstOrDefaultAsync(a => a.ArtistId == upload.ArtistId);
             if (artist is null)
             {
-                _log.LogInformation("Artist is not found");
+                _log.LogError("Artist is not found");
                 return ResponseDto<string>.Fail("Artist is not found", (int)HttpStatusCode.NotFound);
             }
             var fileExtension = Path.GetExtension(upload.File.FileName);
@@ -60,6 +68,17 @@ namespace multitracks.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
             _log.LogInformation("Successful saved image url to database");
             return ResponseDto<string>.Success("Successful upload the image", blobClient.Uri.AbsoluteUri, (int)HttpStatusCode.OK);
+        }
+        private static bool IsImage(IFormFile file)
+        {
+            if (file.ContentType.Contains("image"))
+            {
+                return true;
+            }
+
+            string[] formats = new string[] { ".jpg", ".png", ".gif", ".jpeg" };
+
+            return formats.Any(item => file.FileName.EndsWith(item, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

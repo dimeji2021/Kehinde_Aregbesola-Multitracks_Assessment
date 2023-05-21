@@ -27,6 +27,7 @@ namespace multitracks.Core.Services
             var artists = await artistRepository.SearchArtistByNameAsync(name);
             if (artists is null)
             {
+                _log.LogError("No artist found that matches the search result");
                 return ResponseDto<List<GetArtistDto>>.Fail("No artist found that matches the search result", (int)HttpStatusCode.NotFound);
             }
             var mappedArtists = mapper.Map<List<GetArtistDto>>(artists);

@@ -19,6 +19,9 @@ namespace multitracks.API.Controllers
         }
 
         [HttpGet("search/{name}", Name = "search")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Search(string name)
         {
             _log.LogInformation("Executing search artist endpoint");
@@ -26,6 +29,9 @@ namespace multitracks.API.Controllers
             return StatusCode(artist.StatusCode, artist);
         }
         [HttpPost("create-artist")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateArtist(CreateArtistDto request)
         {
             _log.LogInformation("Executing create artist endpoint");

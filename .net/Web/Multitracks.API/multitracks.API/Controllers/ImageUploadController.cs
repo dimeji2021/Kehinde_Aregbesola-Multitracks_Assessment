@@ -18,6 +18,11 @@ namespace multitracks.API.Controllers
         }
 
         [HttpPost("upload-image")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
         public async Task<IActionResult> UploadImage([FromQuery] UploadImageDto upload)
         {
             var result = await _uploadImageToAzure.UploadImageRepository(upload);

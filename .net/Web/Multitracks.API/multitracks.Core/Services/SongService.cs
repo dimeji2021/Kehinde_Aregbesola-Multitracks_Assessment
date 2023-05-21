@@ -26,6 +26,7 @@ namespace multitracks.Core.Services
             var songs = await songRepository.GetAllSongsAsync(requestParam);
             if (songs.Count == 0)
             {
+                _log.LogError("No Song found");
                 return ResponseDto<List<GetSongDto>>.Fail("No Song found", (int)HttpStatusCode.NotFound);
             }
             var mappedSongs = mapper.Map<List<GetSongDto>>(songs);

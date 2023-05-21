@@ -18,6 +18,9 @@ namespace multitracks.API.Controllers
         }
 
         [HttpGet("list")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ListAllSong([FromQuery]RequestParam requestParam)
         {
             _log.LogInformation("Executing list all songs endpoint");
