@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using multitracks.API;
 using multitracks.API.Extensions;
 using multitracks.Core.Interfaces;
 using multitracks.Core.Services;
@@ -11,14 +12,23 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure serilog
-var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
-builder.Logging.ClearProviders();
-builder.Logging.AddSerilog(logger);
+//Configure serilog
+//var logger = new LoggerConfiguration()
+//    .ReadFrom.Configuration(builder.Configuration)
+//    .Enrich.FromLogContext()
+//    .CreateLogger();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddSerilog(logger);
 
+var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(config)
+    .CreateLogger();
+
+builder.Host.UseSerilog(((ctx, lc) => lc
+.ReadFrom.Configuration(ctx.Configuration)));
 
 try
 {
@@ -50,8 +60,8 @@ try
        timeout: TimeSpan.FromSeconds(3),
        tags: new[] { "ready" });
 
-
     var app = builder.Build();
+
     // Configure global exception.
     ConfigurationMethod.ConfigureGlobalExceptionHandler(app);
 
@@ -63,13 +73,15 @@ try
     }
 
     app.UseHttpsRedirection();
-
     app.UseAuthorization();
+
     // Configure healthchecks.
     ConfigurationMethod.ConfigiureHealthChecks(app);
 
-    app.MapControllers();
+    app.UseRequestResponseLoggerMiddleware();
+    app.UseSerilogRequestLogging(opts => opts.EnrichDiagnosticContext = LogHelper.EnrichFromRequestAsync);
 
+    app.MapControllers();
     app.Run();
 
 }

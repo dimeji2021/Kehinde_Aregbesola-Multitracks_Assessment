@@ -1,0 +1,5 @@
+2023-10-14 13:14:27.742 +01:00  INF  Executing search artist endpoint
+2023-10-14 13:14:27.806 +01:00  INF  Calling the search artist method.
+2023-10-14 13:14:28.961 +01:00  WRN  No store type was specified for the decimal property 'Bpm' on entity type 'Song'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-10-14 13:14:32.955 +01:00  INF  HTTP GET /api/Artist/search/jhh responded 200 in 2732.3269 ms
+2023-10-14 13:28:33.150 +01:00  INF  Application is starting
