@@ -9,29 +9,29 @@ namespace multitracks.API.Extensions
 {
     public class ConfigurationMethod
     {
-        public static void ConfigureGlobalExceptionHandler(IApplicationBuilder applicationBuilder)
-        {
-            applicationBuilder.UseExceptionHandler(error =>
-            {
-                error.Run(async context =>
-                {
-                    context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                    context.Response.ContentType = "application/json";
-                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    if (contextFeature is not null)
-                    {
-                        Log.Error($"Something went wrong in the {contextFeature.Error}"); // Install serilog
-                        await context.Response.WriteAsync(new ResponseDto<string>
-                        {
-                            StatusCode = context.Response.StatusCode,
-                            Status = false,
-                            Message = "An Internal Server Error has occurred. Please refer to the log file for additional details regarding this error.",
-                            //Data = contextFeature.Error.ToString()
-                        }.ToString());
-                    }
-                });
-            });
-        }
+        //public static void ConfigureGlobalExceptionHandler(IApplicationBuilder applicationBuilder)
+        //{
+        //    applicationBuilder.UseExceptionHandler(error =>
+        //    {
+        //        error.Run(async context =>
+        //        {
+        //            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        //            context.Response.ContentType = "application/json";
+        //            var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+        //            if (contextFeature is not null)
+        //            {
+        //                Log.Error($"Something went wrong in the {contextFeature.Error}"); // Install serilog
+        //                await context.Response.WriteAsync(new ResponseDto<string>
+        //                {
+        //                    StatusCode = context.Response.StatusCode,
+        //                    Status = false,
+        //                    Message = "An Internal Server Error has occurred. Please refer to the log file for additional details regarding this error.",
+        //                    //Data = contextFeature.Error.ToString()
+        //                }.ToString());
+        //            }
+        //        });
+        //    });
+        //}
         public static void ConfigiureHealthChecks(IApplicationBuilder applicationBuilder)
         {
             applicationBuilder.UseHealthChecks("/health/ready", new HealthCheckOptions

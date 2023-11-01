@@ -1,8 +1,0 @@
-2023-10-14 13:07:00.519 +01:00  FTL  Application startup exceptionSystem.InvalidOperationException: No public 'Invoke' or 'InvokeAsync' method found for middleware of type 'multitracks.Core.MiddleWare.LogHelper'.
-   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
-   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.<ConfigureApplication>b__27_0(RequestDelegate next)
-   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-
-2023-10-14 13:08:44.072 +01:00  INF  Application is starting

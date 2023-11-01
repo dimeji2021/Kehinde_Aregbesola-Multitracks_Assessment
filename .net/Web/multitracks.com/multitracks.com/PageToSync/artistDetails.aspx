@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="artistDetails.aspx.cs" Inherits="PageToSync_artistDetails" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="artistDetails.aspx.cs" Inherits="PageToSync_artistDetails2" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,39 +21,38 @@
         <ItemTemplate>
             <form>
                 <script>
-                    var toggleLinks = document.querySelectorAll('.toggle-bio-link');
-                    toggleLinks.forEach(link => {
-                        link.addEventListener('click', function (e) {
-                            e.preventDefault();
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var bioContainers = document.querySelectorAll(".artist-details--biography");
 
-                            var parent = this.parentNode;
+                        bioContainers.forEach(function (bioContainer) {
+                            var partialBio = bioContainer.querySelector(".partial-bio");
+                            var fullBio = bioContainer.querySelector(".full-bio");
+                            var toggleLink = bioContainer.querySelector(".toggle-bio-link");
 
-                            var partialBio = parent.querySelector('.partial-bio');
-                            var fullBio = parent.querySelector('.full-bio');
+                            var content = partialBio.innerHTML;
 
-                            if (partialBio.style.display === 'none') {
-                                partialBio.style.display = 'block';
-                                fullBio.style.display = 'none';
-                                this.innerHTML = 'Read More...';
+                            if (content.length > 500) {
+                                var truncatedContent = content.substr(0, 500) + '...';
+                                partialBio.innerHTML = truncatedContent;
+                                toggleLink.style.display = "inline";
+
+                                toggleLink.addEventListener("click", function (event) {
+                                    event.preventDefault();
+
+                                    if (fullBio.style.display === "none") {
+                                        partialBio.style.display = "none";
+                                        fullBio.style.display = "block";
+                                        toggleLink.textContent = "Read Less";
+                                    } else {
+                                        partialBio.style.display = "block";
+                                        fullBio.style.display = "none";
+                                        toggleLink.textContent = "Read More";
+                                    }
+                                });
                             } else {
-                                partialBio.style.display = 'none';
-                                fullBio.style.display = 'block';
-                                this.innerHTML = 'Read Less...';
+                                toggleLink.style.display = "none";
                             }
-                        })
-                    });
-                    var biographies = document.querySelectorAll('.biography');
-                    biographies.forEach(biography => {
-                        var partialBio = biography.querySelector('.partial-bio');
-                        var content = partialBio.innerHTML;
-
-                        if (content.length > 500) {
-                            var partialContent = content.substr(0, 500) + '...';
-                            partialBio.innerHTML = partialContent;
-                        } else {
-                            var toggleLink = biography.querySelector('.toggle-bio-link');
-                            toggleLink.style.display = 'none';
-                        }
+                        });
                     });
                 </script>
 

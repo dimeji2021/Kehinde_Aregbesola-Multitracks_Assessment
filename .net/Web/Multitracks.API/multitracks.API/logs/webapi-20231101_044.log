@@ -1,0 +1,63 @@
+2023-11-01 17:28:23.017 +01:00  INF  Executing search artist endpoint
+2023-11-01 17:28:23.127 +01:00  INF  Calling the search artist method.
+2023-11-01 17:28:23.557 +01:00  ERR  HTTP GET /api/Artist/search/is responded 500 in 1011.8792 msSystem.NotImplementedException: Just dey play
+   at multitracks.Infrastructure.Repositories.ArtistRepository.SearchArtistByNameAsync(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Infrastructure\Repositories\ArtistRepository.cs:line 17
+   at multitracks.Core.Services.ArtistService.SearchArtistByName(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\Services\ArtistService.cs:line 27
+   at multitracks.API.Controllers.ArtistController.Search(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Controllers\ArtistController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+
+2023-11-01 17:28:30.439 +01:00  ERR  Error Processing Request
+2023-11-01 17:28:30.445 +01:00  INF  System encountered an error:
+ System.NotImplementedException: Just dey play
+   at multitracks.Infrastructure.Repositories.ArtistRepository.SearchArtistByNameAsync(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Infrastructure\Repositories\ArtistRepository.cs:line 17
+   at multitracks.Core.Services.ArtistService.SearchArtistByName(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\Services\ArtistService.cs:line 27
+   at multitracks.API.Controllers.ArtistController.Search(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Controllers\ArtistController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at multitracks.API.RequestResponseLoggerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\RequestResponseLoggerMiddleware.cs:line 25
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at multitracks.Core.MiddleWare.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\ExceptionHandlerMiddleware.cs:line 29 
+    at multitracks.Infrastructure.Repositories.ArtistRepository.SearchArtistByNameAsync(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Infrastructure\Repositories\ArtistRepository.cs:line 17
+   at multitracks.Core.Services.ArtistService.SearchArtistByName(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\Services\ArtistService.cs:line 27
+   at multitracks.API.Controllers.ArtistController.Search(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Controllers\ArtistController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at multitracks.API.RequestResponseLoggerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\RequestResponseLoggerMiddleware.cs:line 25
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at multitracks.Core.MiddleWare.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\ExceptionHandlerMiddleware.cs:line 29
+2023-11-01 17:30:24.672 +01:00  INF  Application is starting

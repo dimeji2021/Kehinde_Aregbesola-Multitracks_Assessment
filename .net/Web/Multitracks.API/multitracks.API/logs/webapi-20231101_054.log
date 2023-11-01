@@ -1,0 +1,37 @@
+2023-11-01 17:42:32.916 +01:00  INF  Executing search artist endpoint
+2023-11-01 17:42:32.982 +01:00  INF  Calling the search artist method.
+2023-11-01 17:42:36.205 +01:00  ERR  Error Processing Request
+2023-11-01 17:42:36.211 +01:00  INF  System encountered an error:
+ System.NotSupportedException: What is this
+   at multitracks.Infrastructure.Repositories.ArtistRepository.SearchArtistByNameAsync(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Infrastructure\Repositories\ArtistRepository.cs:line 17
+   at multitracks.Core.Services.ArtistService.SearchArtistByName(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\Services\ArtistService.cs:line 27
+   at multitracks.API.Controllers.ArtistController.Search(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Controllers\ArtistController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at multitracks.Core.MiddleWare.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\ExceptionHandlerMiddleware.cs:line 29 
+    at multitracks.Infrastructure.Repositories.ArtistRepository.SearchArtistByNameAsync(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Infrastructure\Repositories\ArtistRepository.cs:line 17
+   at multitracks.Core.Services.ArtistService.SearchArtistByName(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\Services\ArtistService.cs:line 27
+   at multitracks.API.Controllers.ArtistController.Search(String name) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Controllers\ArtistController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at multitracks.Core.MiddleWare.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.Core\MiddleWare\ExceptionHandlerMiddleware.cs:line 29
+2023-11-01 17:42:36.378 +01:00  ERR  HTTP GET /api/Artist/search/is responded 500 in 3887.0100 ms
+2023-11-01 17:43:49.158 +01:00  INF  Application is starting

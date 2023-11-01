@@ -21,7 +21,6 @@ namespace multitracks.Core.Utilities
             var response = httpContext.Response;
 
             var ResponseBody = await FormatResponse(response);
-            //string path = request.Path.ToString().Trim();
 
             IPAddress addr = IPAddress.Parse(httpContext.Connection.RemoteIpAddress.ToString());
             IPHostEntry entry = Dns.GetHostEntry(addr);
@@ -39,10 +38,8 @@ namespace multitracks.Core.Utilities
             diagnosticContext.Set("Host", request.Host);
             diagnosticContext.Set("Protocol", request.Protocol);
             diagnosticContext.Set("Scheme", request.Scheme);
-
-            //diagnosticContext.Set("ResponseCode", code);
-            //diagnosticContext.Set("Description", description);
         }
+
         private static async Task<string> FormatResponse(HttpResponse response)
         {
             response.Body.Seek(0, SeekOrigin.Begin);

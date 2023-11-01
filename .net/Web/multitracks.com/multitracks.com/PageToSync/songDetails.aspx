@@ -50,7 +50,7 @@
                     <nav class="discovery--nav">
                         <ul class="discovery--nav--list tab-filter--list u-no-scrollbar">
                             <li class="discovery--nav--list--item tab-filter--item ">
-                                <a class="tab-filter" href="<%# "artistDetails.aspx"%>">Overview</a>
+                                <a class="tab-filter" href="<%# "artistDetails.aspx?id="+Eval("artistID")%>">Overview</a>
                             </li>
                             <li class="discovery--nav--list--item tab-filter--item is-active">
                                 <a class="tab-filter" href="#">Songs</a>

@@ -15,29 +15,18 @@ namespace multitracks.API
         }
         public async Task Invoke(HttpContext httpContext)
         {
-            // Read and log request body data
             string requestBodyPayload = await FormatRequest(httpContext.Request);
             LogHelper.RequestBody = requestBodyPayload;
 
-            // Read and log response body data
-            // Copy a pointer to the original response body stream
             var originalResponseBodyStream = httpContext.Response.Body;
-
-            // Create a new memory stream...
-            using (var responseBodyStream = new MemoryStream())
+            using (var responseBody = new MemoryStream())
             {
-                // ...and use that for the temporary response body
-                httpContext.Response.Body = responseBodyStream;
-
-                // Continue down the Middleware pipeline, eventually returning to this class
+                httpContext.Response.Body = responseBody;
                 await _next(httpContext);
-
-                // Copy the contents of the new memory stream (which contains the response) to the original stream, which is then returned to the client.
-                responseBodyStream.Seek(0, SeekOrigin.Begin);
-                await responseBodyStream.CopyToAsync(originalResponseBodyStream);
+                await responseBody.CopyToAsync(originalResponseBodyStream);
             }
         }
-        private async Task<string> FormatRequest(HttpRequest request)
+        private static async Task<string> FormatRequest(HttpRequest request)
         {
             request.EnableBuffering();
             var body = await new StreamReader(request.Body).ReadToEndAsync();
@@ -46,7 +35,6 @@ namespace multitracks.API
         }
     }
 
-    // Extension method used to add the middleware to the HTTP request pipeline.
     public static class RequestResponseLoggerMiddlewareExtensions
     {
         public static IApplicationBuilder UseRequestResponseLoggerMiddleware(this IApplicationBuilder builder)

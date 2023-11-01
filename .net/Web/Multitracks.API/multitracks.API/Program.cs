@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using multitracks.API;
 using multitracks.API.Extensions;
 using multitracks.Core.Interfaces;
+using multitracks.Core.MiddleWare;
 using multitracks.Core.Services;
 using multitracks.Core.Utilities;
 using multitracks.Infrastructure;
@@ -11,15 +12,6 @@ using Serilog;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-
-//Configure serilog
-//var logger = new LoggerConfiguration()
-//    .ReadFrom.Configuration(builder.Configuration)
-//    .Enrich.FromLogContext()
-//    .CreateLogger();
-//builder.Logging.ClearProviders();
-//builder.Logging.AddSerilog(logger);
-
 var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -34,7 +26,7 @@ try
 {
     logger.Information("Application is starting");
     // Add services to the container.
-    builder.Services.AddControllers().AddJsonOptions(options=>
+    builder.Services.AddControllers().AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         //options.JsonSerializerOptions.WriteIndented = true;
@@ -63,7 +55,7 @@ try
     var app = builder.Build();
 
     // Configure global exception.
-    ConfigurationMethod.ConfigureGlobalExceptionHandler(app);
+    //ConfigurationMethod.ConfigureGlobalExceptionHandler(app);
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
@@ -75,15 +67,17 @@ try
     app.UseHttpsRedirection();
     app.UseAuthorization();
 
-    // Configure healthchecks.
-    ConfigurationMethod.ConfigiureHealthChecks(app);
-
     app.UseRequestResponseLoggerMiddleware();
     app.UseSerilogRequestLogging(opts => opts.EnrichDiagnosticContext = LogHelper.EnrichFromRequestAsync);
 
+    //Exception Middleware
+    app.UseExceptionHandlerMiddleware();
+
+    // Configure healthchecks.
+    ConfigurationMethod.ConfigiureHealthChecks(app);
+
     app.MapControllers();
     app.Run();
-
 }
 catch (Exception ex)
 {

@@ -1,10 +1,13 @@
 ﻿using DataAccess;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class PageToSync_artistDetails : Page
+public partial class PageToSync_artistDetails2 : System.Web.UI.Page
 {
     private readonly SQL sql = new SQL();
 
@@ -12,6 +15,14 @@ public partial class PageToSync_artistDetails : Page
     {
         try
         {
+            var _artistID = Convert.ToInt32(Request.QueryString["id"]);
+
+            if (_artistID <= 0)
+            {
+                Response.Redirect("artistDetails.aspx?id=1");
+            }
+
+            sql.Parameters.Add("@artistID", _artistID);
             var data = sql.ExecuteStoredProcedureDT("[GetArtistDetails]");
             if (data != null)
             {

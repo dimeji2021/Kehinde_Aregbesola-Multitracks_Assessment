@@ -1,0 +1,64 @@
+2023-11-01 17:43:59.432 +01:00  INF  Executing search artist endpoint
+2023-11-01 17:43:59.560 +01:00  INF  Calling the search artist method.
+2023-11-01 17:44:00.768 +01:00  WRN  No store type was specified for the decimal property 'Bpm' on entity type 'Song'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-11-01 17:44:01.909 +01:00  INF  HTTP GET /api/Artist/search/y responded 200 in 3083.2630 ms
+2023-11-01 17:44:20.120 +01:00  INF  Executing create artist endpoint
+2023-11-01 17:44:20.125 +01:00  INF  Calling the create artist method.
+2023-11-01 17:44:20.663 +01:00  INF  HTTP POST /api/Artist/create-artist responded 201 in 563.7162 ms
+2023-11-01 17:44:34.001 +01:00  INF  Executing list all songs endpoint
+2023-11-01 17:44:34.004 +01:00  INF  Calling the get all songs  method.
+2023-11-01 17:44:34.280 +01:00  INF  HTTP GET /api/Song/list responded 200 in 294.3111 ms
+2023-11-01 17:45:29.008 +01:00  INF  Application is starting
+2023-11-01 17:45:29.128 +01:00  FTL  Application fail to startSystem.AggregateException: Failed to emit a log event. (Cannot open database "Multitracs" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H7DDR3P\Kehinde Aregbesola'.)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "Multitracs" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H7DDR3P\Kehinde Aregbesola'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
+ClientConnectionId:4386e2e9-55e5-4666-912c-6cd176debdac
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
+   at Serilog.Core.Logger.Information(String messageTemplate)
+   at Program.<Main>$(String[] args) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Program.cs:line 27
+
+2023-11-01 17:45:53.921 +01:00  INF  Application is starting
+2023-11-01 17:46:04.605 +01:00  FTL  Application fail to startSystem.AggregateException: Failed to emit a log event. (Cannot open database "Multitracs" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H7DDR3P\Kehinde Aregbesola'.)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "Multitracs" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H7DDR3P\Kehinde Aregbesola'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
+ClientConnectionId:65480d06-32d6-4e00-ad70-e7beeec0a457
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
+   at Serilog.Core.Logger.Information(String messageTemplate)
+   at Program.<Main>$(String[] args) in C:\Users\Kehinde Aregbesola\Desktop\interview questions and answers\Multitracks\.net\Web\Multitracks.API\multitracks.API\Program.cs:line 27
+
+2023-11-01 17:46:18.056 +01:00  INF  Application is starting
+2023-11-01 17:46:42.862 +01:00  INF  Application is starting
